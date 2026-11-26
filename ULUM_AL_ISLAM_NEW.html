@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#123d32">
+<title>ULUM AL-ISLAM</title>
+<style>
+:root{--bg:#f3f6f2;--panel:#fff;--ink:#19382f;--muted:#687c73;--line:#dce6df;--green:#145b45;--green2:#0c3b2e;--gold:#c5a566;--soft:#eaf1eb;--shadow:0 8px 26px #173b2b12}
+[data-theme=dark]{--bg:#101c18;--panel:#192923;--ink:#e8f0eb;--muted:#a8b8ae;--line:#30463b;--green:#6dbb91;--green2:#d9eee1;--gold:#d9bd7c;--soft:#233a2f;--shadow:0 8px 26px #0003}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}
+header{background:linear-gradient(125deg,#0b3027,#1b6148);color:#fff;padding:20px max(16px,calc((100% - 1050px)/2)) 28px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px}.brand{display:flex;align-items:center;gap:11px}.logo{width:43px;height:43px;border:1px solid #ffffff55;border-radius:13px;display:grid;place-items:center;color:#e8ce91;font-size:25px}.brand b{letter-spacing:1.1px}.brand small{display:block;color:#c8dcd1;font-size:10px;letter-spacing:2px}.top button{background:#ffffff18;color:white;border:1px solid #ffffff55;border-radius:10px;padding:8px 11px}
+.hero{padding:25px 0 0}.eyebrow{font-size:11px;letter-spacing:2px;color:#e2c986;text-transform:uppercase}.hero h1{font:500 clamp(28px,5vw,43px)/1.15 Georgia,serif;margin:8px 0}.hero p{max-width:660px;color:#d4e4db;margin:0}
+main{max-width:1050px;margin:auto;padding:18px 14px 35px}.nav{display:flex;gap:7px;overflow:auto;padding:3px 0 15px;scrollbar-width:none}.nav button{white-space:nowrap;border:1px solid var(--line);background:var(--panel);color:var(--muted);border-radius:30px;padding:9px 13px}.nav button.active{background:var(--green);border-color:var(--green);color:#fff}
+.page{display:none}.page.active{display:block}.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:13px}.card{grid-column:span 12;background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:17px;box-shadow:var(--shadow);min-width:0}.half{grid-column:span 6}.third{grid-column:span 4}
+h2,h3{margin:0 0 9px}h2{font-size:20px}h3{font-size:16px}.muted{color:var(--muted)}.small{font-size:12px}.pill{display:inline-block;background:var(--soft);color:var(--green2);padding:4px 9px;border-radius:20px;font-size:11px}
+.btn{border:0;border-radius:10px;padding:10px 13px;background:var(--green);color:#fff}.btn.secondary{background:var(--soft);color:var(--green2);border:1px solid var(--line)}.btn.ghost{background:transparent;border:1px solid var(--line);color:var(--green2)}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+input,select,textarea{width:100%;border:1px solid var(--line);background:var(--bg);color:var(--ink);padding:10px 11px;border-radius:10px;min-width:0}label{display:block;font-size:12px;color:var(--muted);margin:10px 0 5px}textarea{min-height:100px;resize:vertical}.row{display:flex;gap:10px}.row>*{flex:1;min-width:0}
+.notice{padding:12px;background:var(--soft);border-left:3px solid var(--gold);border-radius:9px;font-size:13px}.status{font-size:12px;color:var(--muted);margin:10px 0;min-height:18px}
+.module,.lesson,.result{width:100%;text-align:left;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:12px;margin:6px 0}.module b,.lesson b{display:block}.module small,.lesson small{display:block;color:var(--muted);margin-top:3px}.module-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.ayah{padding:14px 0;border-bottom:1px solid var(--line)}.ayah:last-child{border:0}.arabic{font:28px/2 "Times New Roman",serif;text-align:right;direction:rtl;color:var(--green2);margin:6px 0}.translation{color:var(--muted);margin:7px 0}.meta{font-size:12px;color:var(--muted)}.progress{height:8px;background:var(--line);border-radius:20px;overflow:hidden;margin:10px 0}.progress i{display:block;height:100%;width:0;background:var(--gold)}
+.item{padding:11px 0;border-bottom:1px solid var(--line)}.item:last-child{border:0}.checkline{display:flex;align-items:center;gap:9px}.checkline input{width:18px;height:18px;flex:none}
+#compass{font-size:68px;text-align:center;padding:12px;transition:transform .15s}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:22px}
+@media(max-width:680px){.half,.third{grid-column:span 12}.module-list{grid-template-columns:1fr}.row{flex-direction:column;gap:0}.card{padding:14px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="top"><div class="brand"><div class="logo">۞</div><div><b>ULUM AL-ISLAM</b><small>ИСЛАМСКИЕ ЗНАНИЯ</small></div></div><button id="themeBtn">◐ Тема</button></div>
+ <div class="hero"><div class="eyebrow">Изучай · Проверяй · Повторяй</div><h1>Путь к знанию<br>начинается с основы.</h1><p>Учебная платформа по Корану и исламским наукам. Материалы сопровождаются указанием источников; разногласия не скрываются.</p></div>
+</header>
+<main>
+<nav class="nav" id="nav">
+ <button class="active" data-page="home">Главная</button><button data-page="quran">Коран</button><button data-page="courses">Науки</button><button data-page="plan">Обучение</button><button data-page="prayer">Намаз</button><button data-page="qibla">Кибла</button><button data-page="sources">Источники</button><button data-page="notes">Заметки</button>
+</nav>
+
+<section id="home" class="page active">
+ <div class="grid">
+  <div class="card half"><span class="pill">ULUM AL-ISLAM</span><h2 style="margin-top:10px">Ассаляму алейкум</h2><p class="muted">Здесь собраны инструменты для чтения, изучения и повторения. Данные заметок и прогресса хранятся в браузере этого устройства.</p><div class="actions"><button class="btn" data-go="quran">Открыть Коран</button><button class="btn secondary" data-go="courses">Изучать науки</button></div></div>
+  <div class="card half"><h3>Твой учебный прогресс</h3><div id="homeCount" style="font-size:30px;font-weight:700">0%</div><div class="progress"><i id="homeBar"></i></div><p class="small muted">Отмечай завершённые учебные темы в разделе «Обучение».</p></div>
+  <div class="card half"><h3>Разделы</h3><div class="item">📖 Коран: чтение, перевод, поиск и закладки</div><div class="item">📚 Таджвид, кирааты, тафсир и другие науки</div><div class="item">🕌 Время намаза и направление Киблы</div></div>
+  <div class="card half"><h3>Принцип достоверности</h3><div class="notice">Краткий урок — не фетва и не замена преподавателю. Проверяй религиозные вопросы по первоисточникам и у квалифицированных учёных.</div></div>
+ </div>
+</section>
+
+<section id="quran" class="page">
+ <div class="grid">
+  <div class="card"><h2>Чтение Корана</h2><p class="muted small">Арабский текст Uthmani и перевод смыслов на русский (ru.kuliev). Для загрузки текста и аудио нужен интернет.</p>
+   <div class="row"><div><label for="surah">Сура</label><select id="surah"><option>Загрузка списка сур…</option></select></div><div><label for="searchTerm">Поиск по переводу</label><input id="searchTerm" placeholder="Например: милость, терпение"></div></div>
+   <div class="actions"><button class="btn" id="openSurah">Открыть суру</button><button class="btn secondary" id="searchBtn">Искать</button><button class="btn ghost" id="bookmarksBtn">Закладки</button><button class="btn ghost" id="memorizedBtn">Выученные</button></div><div id="qStatus" class="status" aria-live="polite">Подключение к библиотеке Корана…</div>
+  </div>
+  <div class="card" id="qResults"><p class="muted">Выбери суру, чтобы начать чтение.</p></div>
+  <div class="card"><div class="notice">Перевод передаёт смысл и не является самим арабским текстом Корана. Для правильного произношения необходимы слушание чтения и обучение у знающего преподавателя.</div></div>
+ </div>
+</section>
+
+<section id="courses" class="page">
+ <div class="card"><h2>Исламские науки</h2><p class="muted">Вводные материалы с указанием литературы. Это учебные конспекты, а не исчерпывающие курсы.</p><input id="courseFilter" placeholder="Найти направление…"><div id="courseList" class="module-list" style="margin-top:10px"></div><div id="lessonArea" style="margin-top:12px"></div></div>
+</section>
+
+<section id="plan" class="page">
+ <div class="grid"><div class="card half"><h2>План обучения</h2><p class="muted small">Отмечай темы после изучения. Прогресс сохраняется на этом устройстве.</p><div id="planList"></div></div><div class="card half"><h3>Прогресс</h3><div id="planPercent" style="font-size:30px;font-weight:700">0%</div><div class="progress"><i id="planBar"></i></div><button class="btn secondary" id="resetPlan">Сбросить отметки</button><p class="small muted">При очистке данных браузера локальные отметки могут исчезнуть.</p></div></div>
+</section>
+
+<section id="prayer" class="page">
+ <div class="grid"><div class="card half"><h2>Время намаза</h2><p class="muted small">Расчёт по координатам устройства после твоего разрешения на геолокацию.</p><div class="actions"><button class="btn" id="calcPrayer">Определить местоположение и рассчитать</button></div><div class="status" id="prayerStatus">Местоположение ещё не определено.</div>
+ <div class="row"><div><label>Фаджр</label><input id="fajr" type="time"></div><div><label>Зухр</label><input id="dhuhr" type="time"></div></div><div class="row"><div><label>Аср</label><input id="asr" type="time"></div><div><label>Магриб</label><input id="maghrib" type="time"></div></div><label>Иша</label><input id="isha" type="time"><div class="actions"><button class="btn secondary" id="savePrayer">Сохранить вручную</button></div><div id="manualStatus" class="status"></div></div>
+ <div class="card half"><h3>Параметры расчёта</h3><label for="method">Метод расчёта</label><select id="method"><option value="3">Muslim World League</option><option value="1">Karachi</option><option value="2">ISNA</option><option value="5">Egyptian General Authority</option><option value="15">Moonsighting Committee</option></select><label for="asrSchool">Аср</label><select id="asrSchool"><option value="1">Ханафитский (коэффициент 2)</option><option value="0">Стандартный (коэффициент 1)</option></select><div class="notice">Расчётные времена могут отличаться от календаря местной мечети. Сверяй расписание с местным религиозным управлением. Источник: AlAdhan API.</div></div></div>
+</section>
+
+<section id="qibla" class="page">
+ <div class="grid"><div class="card half"><h2>Направление Киблы</h2><p class="muted small">Разреши геолокацию для вычисления направления к Каабе.</p><div id="qiblaDegree" style="font-size:32px;font-weight:700">—°</div><div id="qiblaStatus" class="status">Нажми кнопку для расчёта.</div><div class="actions"><button class="btn" id="getQibla">Определить направление</button><button class="btn secondary" id="enableCompass">Включить компас</button></div></div><div class="card half"><div id="compass">🧭</div><div class="notice">Датчики компаса могут отсутствовать или давать погрешность. Убери телефон от металла и магнитов; сверяй направление с надёжным ориентиром.</div></div></div>
+</section>
+
+<section id="sources" class="page">
+ <div class="card"><h2>Источники и литература</h2>
+ <div class="item"><b>Коран и перевод смыслов</b><p class="small muted">AlQuran Cloud API: арабское издание quran-uthmani; русское издание ru.kuliev. <a href="https://alquran.cloud/api" target="_blank" rel="noopener">Документация API</a>.</p></div>
+ <div class="item"><b>Аудио Корана</b><p class="small muted">AlQuran Cloud CDN, чтец ar.alafasy. <a href="https://alquran.cloud/cdn" target="_blank" rel="noopener">Документация CDN</a>.</p></div>
+ <div class="item"><b>Таджвид и кирааты</b><p class="small muted">Ибн аль-Джазари: «аль-Мукаддима аль-Джазарийя» и «ан-Нашр фи аль-кираат аль-ашр». Для практики требуется устная передача и проверка чтения.</p></div>
+ <div class="item"><b>Тафсир</b><p class="small muted">Ат-Табари: «Джами‘ аль-баян»; Ибн Касир: «Тафсир аль-Куран аль-‘азым»; ас-Са‘ди: «Тайсир аль-Карим ар-Рахман».</p></div>
+ <div class="item"><b>Хадисоведение</b><p class="small muted">«Сахих аль-Бухари», «Сахих Муслим», «Сунан Абу Дауд», «Джами‘ ат-Тирмизи» и другие сборники. Номер хадиса указывай с учётом конкретного издания.</p></div>
+ <div class="item"><b>Время намаза</b><p class="small muted">AlAdhan Prayer Times API. <a href="https://aladhan.com/prayer-times-api" target="_blank" rel="noopener">Документация API</a>.</p></div>
+ <div class="notice">Указание книги в списке не означает, что полный текст этой книги встроен в приложение.</div>
+ </div>
+</section>
+
+<section id="notes" class="page"><div class="card"><h2>Личные заметки</h2><p class="muted small">Записывай вопросы и темы для повторения. Заметки хранятся локально в браузере.</p><label for="noteText">Новая заметка</label><textarea id="noteText" placeholder="Напиши заметку…"></textarea><div class="actions"><button class="btn" id="addNote">Сохранить</button></div><div id="notesList"></div></div></section>
+</main>
+<footer>ULUM AL-ISLAM · Учебный проект · Проверяй знания по первоисточникам и у преподавателей.</footer>
+
+<script>
+'use strict';
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const KEY='ulumIslam_v1_';
+const db={get(k,fallback){try{const v=localStorage.getItem(KEY+k);return v===null?fallback:JSON.parse(v)}catch{return fallback}},set(k,v){try{localStorage.setItem(KEY+k,JSON.stringify(v))}catch{}}};
+function status(el,msg){$(el).textContent=msg}
+function escapeHTML(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function go(id){$$('.page').forEach(p=>p.classList.toggle('active',p.id===id));$$('#nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===id));window.scrollTo({top:0,behavior:'smooth'})}
+$('#nav').addEventListener('click',e=>{const b=e.target.closest('[data-page]');if(b)go(b.dataset.page)});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-go]');if(b)go(b.dataset.go)});
+$('#themeBtn').onclick=()=>{const next=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=next;db.set('theme',next)};
+document.documentElement.dataset.theme=db.get('theme','light');
+
+/* Quran reader */
+const QAPI='https://api.alquran.cloud/v1'; let surahs=[], currentAyahs=[];
+async function qget(path){const r=await fetch(QAPI+path);if(!r.ok)throw Error('HTTP '+r.status);const j=await r.json();if(j.code!==200)throw Error(j.status||'API error');return j.data}
+async function initSurahs(){try{surahs=await qget('/surah');$('#surah').innerHTML=surahs.map(s=>`<option value="${s.number}">${s.number}. ${escapeHTML(s.name)} — ${escapeHTML(s.englishName)} (${s.numberOfAyahs})</option>`).join('');status('#qStatus','Список 114 сур загружен.')}catch{status('#qStatus','Не удалось загрузить список сур. Проверь интернет и обнови страницу.')}}
+function renderAyahs(ar,ru){currentAyahs=ar.ayahs.map((a,i)=>({global:a.number,local:a.numberInSurah,arabic:a.text,translation:ru.ayahs[i]?.text||'',audio:a.audio||''}));const saved=db.get('bookmarks',[]),mem=db.get('memorized',[]);$('#qResults').innerHTML=`<h3>${escapeHTML(ar.name)} · ${escapeHTML(ar.englishName)}</h3><p class="meta">${ar.numberOfAyahs} аятов · ${ar.revelationType==='Meccan'?'Мекканская':'Мединская'} · перевод смыслов: Эльмир Кулиев</p>`+currentAyahs.map(a=>{const ref=$('#surah').value+':'+a.local;return `<article class="ayah" id="ayah-${a.global}"><div class="meta">${ref}</div><div class="arabic" lang="ar">${escapeHTML(a.arabic)} ۝</div><div class="translation">${escapeHTML(a.translation)}</div><div class="actions"><button class="btn secondary small" data-book="${ref}">${saved.includes(ref)?'★ В закладках':'☆ В закладки'}</button><button class="btn ghost small" data-mem="${ref}">${mem.includes(ref)?'✓ Выучен':'Отметить выученным'}</button><button class="btn ghost small" data-play="${a.global}">▶ Слушать</button></div></article>`}).join('');status('#qStatus','Сура загружена. Закладки и отметки сохраняются на этом устройстве.')}
+$('#openSurah').onclick=async()=>{const n=$('#surah').value;if(!n)return;status('#qStatus','Загружаем суру…');$('#qResults').innerHTML='';try{const [ar,ru]=await Promise.all([qget(`/surah/${n}/quran-uthmani`),qget(`/surah/${n}/ru.kuliev`)]);if(ar.ayahs.length!==ru.ayahs.length)throw Error('Разное число аятов');renderAyahs(ar,ru)}catch{status('#qStatus','Ошибка загрузки суры. Попробуй ещё раз позже.');$('#qResults').textContent='Не удалось получить текст. Проверь подключение к интернету.'}};
+$('#searchBtn').onclick=async()=>{const term=$('#searchTerm').value.trim();if(!term){status('#qStatus','Введи слово или фразу для поиска.');return}status('#qStatus','Ищем по переводу…');try{const d=await qget(`/search/${encodeURIComponent(term)}/all/ru.kuliev`);const matches=(d.matches||[]).slice(0,50);$('#qResults').innerHTML=`<h3>Результаты: ${escapeHTML(term)}</h3>`+(matches.length?matches.map(a=>`<div class="result"><div class="meta">${a.surah.number}:${a.numberInSurah} · ${escapeHTML(a.surah.englishName)}</div><p>${escapeHTML(a.text)}</p><button class="btn secondary small" data-open-surah="${a.surah.number}" data-ayah="${a.numberInSurah}">Открыть аят</button></div>`).join(''):'<p class="muted">Совпадений не найдено.</p>');status('#qStatus',`Найдено совпадений: ${d.count}. Показано до 50.`)}catch{status('#qStatus','Поиск временно недоступен. Проверь соединение.')}};
+$('#qResults').addEventListener('click',async e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.book){let a=db.get('bookmarks',[]),r=b.dataset.book;a=a.includes(r)?a.filter(x=>x!==r):[...a,r];db.set('bookmarks',a);b.textContent=a.includes(r)?'★ В закладках':'☆ В закладки'}if(b.dataset.mem){let a=db.get('memorized',[]),r=b.dataset.mem;a=a.includes(r)?a.filter(x=>x!==r):[...a,r];db.set('memorized',a);b.textContent=a.includes(r)?'✓ Выучен':'Отметить выученным'}if(b.dataset.play){try{const a=await qget(`/ayah/${b.dataset.play}/ar.alafasy`);let audio=b.parentElement.querySelector('audio');if(!audio){audio=document.createElement('audio');audio.controls=true;b.parentElement.append(audio)}audio.src=a.audio;await audio.play()}catch{status('#qStatus','Аудио сейчас недоступно.')}}if(b.dataset.openSurah){$('#surah').value=b.dataset.openSurah;await $('#openSurah').onclick();const ref=`${b.dataset.openSurah}:${b.dataset.ayah}`;const target=[...$('#qResults').querySelectorAll('.ayah')].find(el=>el.querySelector('.meta')?.textContent.trim()===ref);target?.scrollIntoView({behavior:'smooth',block:'center'})}});
+function showSaved(which){const arr=db.get(which,[]);$('#qResults').innerHTML=`<h3>${which==='bookmarks'?'Закладки':'Выученные аяты'}</h3>`+(arr.length?arr.map(ref=>{const [s,a]=ref.split(':');return `<div class="item"><b>${ref}</b> <button class="btn secondary small" data-open-surah="${s}" data-ayah="${a}">Открыть</button></div>`}).join(''):'<p class="muted">Пока пусто.</p>')}
+$('#bookmarksBtn').onclick=()=>showSaved('bookmarks');$('#memorizedBtn').onclick=()=>showSaved('memorized');initSurahs();
+
+/* Introductory study notes */
+const courses={
+'Таджвид':[
+['Что изучает таджвид','Таджвид — правила и практические навыки правильного чтения Корана: произношение букв, их свойства, правила соединения и остановки. Теория важна, но правильное чтение проверяется устно.','Ибн аль-Джазари, аль-Мукаддима аль-Джазарийя; учеба у преподавателя.'],
+['Махрадж и сифат букв','Махрадж — место образования звука; сифат — его устойчивые характеристики. Ошибки в произношении могут менять звучание букв, поэтому их исправляют по прослушиванию и повторению за квалифицированным учителем.','Ибн аль-Джазари, ан-Нашр фи аль-кираат аль-ашр.'],
+['Нун сакина и танвин','В классическом изложении рассматривают четыре основных правила: изхар, идгам, икляб и ихфа. Для каждого правила нужно изучать буквы и примеры непосредственно по мусхафу с преподавателем.','Аль-Мукаддима аль-Джазарийя; признанные пособия по таджвиду.']
+],
+'Кирааты':[
+['Что такое кираат','Кираат — переданный способ чтения Корана, основанный на достоверной передаче и соответствующих правилах. Канонические чтения имеют цепи передачи и изучаются по установленным путям.','Ибн аль-Джазари, ан-Нашр фи аль-кираат аль-ашр.'],
+['Кираат и риваят','Кираат обычно связывают с имамом чтения, а риваят — с передатчиком от этого имама. Например, Хафс и Шу‘ба передают чтение от ‘Асима. Нельзя смешивать названия имамов и передатчиков.','Ибн аль-Джазари, ан-Нашр; учебные пособия по десяти кираатам.'],
+['Условия изучения','Кирааты изучают через устную передачу, проверку чтения и знание правил каждого пути. Одного чтения описаний или транскрипции недостаточно для освоения риваята.','Традиция талакки и мушафаһа; Ибн аль-Джазари.']
+],
+'Тафсир':[
+['Что такое тафсир','Тафсир — разъяснение смыслов аятов с опорой на Коран, Сунну, сообщения ранних поколений, арабский язык и другие признанные методы толкования. Контекст аята имеет значение.','Ибн Таймийя, Мукаддима фи усуль ат-тафсир.'],
+['Контекст аята','При изучении аята важно учитывать соседние аяты, тему суры, причины ниспослания при достоверной передаче и объяснения ранних толкователей. Отдельная цитата не всегда отражает полный смысл.','Ат-Табари, Джами‘ аль-баян; Ибн Касир, Тафсир аль-Куран аль-‘азым.'],
+['Сравнение тафсиров','Сравнивая тафсиры, отмечай, приводит ли автор языковое объяснение, хадис, сообщение от сподвижника или собственное предпочтение. Разногласия не следует скрывать.','Ат-Табари; Ибн Касир; ас-Са‘ди.']
+],
+'Акыда и таухид':[
+['Понятие таухида','Таухид означает утверждение единственности Аллаха. В учебной литературе его объясняют через поклонение только Аллаху, Его господство и Его имена и качества. Формулировки и классификации нужно изучать в контексте конкретных учёных.','Коран; «Китаб ат-таухид» Мухаммада ибн Абд аль-Ваххаба; комментарии учёных.'],
+['Иман','Иман в исламских текстах связан с убеждением сердца, словами и делами. Учёные подробно обсуждали его определение, увеличение и уменьшение; при изучении важно точно передавать позицию каждого автора.','Коран, Сунна; труды по акыде разных суннитских школ.'],
+['Как изучать акыду','Начинай с ясных основ Корана и достоверной Сунны, сверяй цитаты и не делай выводов о людях по одному спорному вопросу. Различай основу вероубеждения и частные вопросы толкования.','Коран и достоверная Сунна; признанные вводные труды по акыде.']
+],
+'Фикх':[
+['Что изучает фикх','Фикх — знание практических религиозных постановлений, извлекаемых из подробных доказательств. Вопросы поклонения и повседневной жизни изучают с учётом доказательств и методологии учёных.','Классические труды по фикху четырёх суннитских мазхабов.'],
+['Мазхабы','Четыре известных суннитских мазхаба — ханафитский, маликитский, шафиитский и ханбалитский. Между ними есть признанные разногласия в ряде практических вопросов; это не повод искажать позицию другого мазхаба.','Классические матны и комментарии каждого мазхаба.'],
+['Как обращаться с разногласиями','Сначала выясни точную формулировку вопроса, затем изучи доводы и то, как их понимали учёные. Не следует объявлять единогласие там, где оно не установлено.','Усуль аль-фикх и сравнительные труды по фикху.']
+],
+'Хадисоведение':[
+['Что такое хадис','Хадис — сообщение о словах, действиях, одобрении или описании Пророка ﷺ. При работе с хадисом важно проверять текст, иснад, источник и оценку специалистов.','Ибн ас-Салах, Ма‘рифат анва‘ илм аль-хадис.'],
+['Иснад и матн','Иснад — цепочка передатчиков; матн — сам текст сообщения. Оценка хадиса зависит от совокупности условий и анализа передатчиков и путей передачи.','Ибн ас-Салах; труды по мусталях аль-хадис.'],
+['Степени хадисов','Термины сахих, хасан и да‘иф имеют технические определения. Не следует самостоятельно выносить оценку хадиса без знания методологии и проверки мнений специалистов.','Ибн Хаджар, Нухбат аль-фикар и комментарии.']
+],
+'Арабский язык':[
+['Зачем изучать арабский','Арабский язык помогает читать Коран и классические исламские труды в оригинале. Перевод полезен, но не передаёт все языковые оттенки.','Классические пособия по наху и сарфу.'],
+['Нахв и сарф','Нахв изучает грамматические отношения слов в предложении, а сарф — формы и словообразование. Оба направления нужны для уверенного чтения текстов.','Ибн Аджуррум, аль-Аджуррумийя; вводные пособия по сарфу.'],
+['Постепенное обучение','Начинай с чтения букв и огласовок, затем изучай лексику, простые предложения и базовую грамматику. Регулярное повторение эффективнее спешки.','Аль-Аджуррумийя и учебные пособия для начинающих.']
+],
+'Сира и история':[
+['Что такое сира','Сира изучает жизнь Пророка Мухаммада ﷺ и раннюю историю мусульманской общины. Исторические сообщения нужно оценивать по источнику и достоверности передачи.','Ибн Хишам, ас-Сира ан-набавийя; Ибн Касир, аль-Бидая ва-н-нихая.'],
+['Работа с историческими сообщениями','При чтении различай ранний источник, поздний пересказ и современное исследование. Не все известные истории имеют одинаковую степень достоверности.','Ранние источники сиры и исследования хадисоведов.'],
+['Хронология','Хронология помогает видеть последовательность мекканского и мединского периодов, но даты некоторых событий в источниках могут различаться.','Ибн Хишам; Ибн Касир.']
+]
+};
+function renderCourses(filter=''){const q=filter.toLocaleLowerCase('ru');$('#courseList').innerHTML=Object.keys(courses).filter(n=>n.toLocaleLowerCase('ru').includes(q)).map(n=>`<button class="module" data-course="${escapeHTML(n)}"><b>${escapeHTML(n)}</b><small>${courses[n].length} вводных урока</small></button>`).join('')||'<p class="muted">Ничего не найдено.</p>'}
+renderCourses();$('#courseFilter').oninput=e=>renderCourses(e.target.value);
+$('#courseList').onclick=e=>{const b=e.target.closest('[data-course]');if(!b)return;const name=b.dataset.course;$('#lessonArea').innerHTML=`<h3>${escapeHTML(name)}</h3>`+courses[name].map((x,i)=>`<button class="lesson" data-lesson="${i}" data-course="${escapeHTML(name)}"><b>${escapeHTML(x[0])}</b><small>Открыть урок и источник</small></button>`).join('');$('#lessonArea').scrollIntoView({behavior:'smooth',block:'start'})};
+$('#lessonArea').onclick=e=>{const b=e.target.closest('[data-lesson]');if(!b)return;const x=courses[b.dataset.course][Number(b.dataset.lesson)];$('#lessonArea').innerHTML=`<h3>${escapeHTML(x[0])}</h3><p>${escapeHTML(x[1])}</p><div class="notice"><b>Литература:</b> ${escapeHTML(x[2])}</div><div class="actions"><button class="btn secondary" id="backLessons">← К урокам</button></div>`;$('#backLessons').onclick=()=>{$('#courseList').querySelector(`[data-course="${CSS.escape(b.dataset.course)}"]`)?.click()}};
+
+/* Learning plan */
+const planItems=['Введение в чтение Корана','Основы таджвида','Знакомство с кираатами','Основы таухида и акыды','Введение в фикх','Основы хадисоведения','Основы арабского языка','Сира Пророка ﷺ'];
+let done=db.get('plan',[]);
+function drawPlan(){const pct=Math.round(done.length/planItems.length*100);$('#planList').innerHTML=planItems.map((t,i)=>`<label class="checkline item"><input type="checkbox" data-plan="${i}" ${done.includes(i)?'checked':''}><span>${t}</span></label>`).join('');$('#planPercent').textContent=pct+'%';$('#planBar').style.width=pct+'%';$('#homeCount').textContent=pct+'%';$('#homeBar').style.width=pct+'%'}
+$('#planList').onchange=e=>{const c=e.target.closest('[data-plan]');if(!c)return;const i=Number(c.dataset.plan);done=c.checked?[...new Set([...done,i])]:done.filter(x=>x!==i);db.set('plan',done);drawPlan()};
+$('#resetPlan').onclick=()=>{if(confirm('Сбросить весь учебный прогресс?')){done=[];db.set('plan',done);drawPlan()}};drawPlan();
+
+/* Notes */
+function drawNotes(){const arr=db.get('notes',[]);$('#notesList').innerHTML=arr.length?arr.map((n,i)=>`<div class="item"><div class="meta">${escapeHTML(n.date)}</div><p style="white-space:pre-wrap">${escapeHTML(n.text)}</p><button class="btn ghost small" data-delete-note="${i}">Удалить</button></div>`).join(''):'<p class="muted small">Заметок пока нет.</p>'}
+$('#addNote').onclick=()=>{const text=$('#noteText').value.trim();if(!text)return;const arr=db.get('notes',[]);arr.unshift({text,date:new Date().toLocaleString('ru-RU')});db.set('notes',arr);$('#noteText').value='';drawNotes()};
+$('#notesList').onclick=e=>{const b=e.target.closest('[data-delete-note]');if(!b)return;const arr=db.get('notes',[]);arr.splice(Number(b.dataset.deleteNote),1);db.set('notes',arr);drawNotes()};drawNotes();
+
+/* Prayer times */
+const prayerKeys=['fajr','dhuhr','asr','maghrib','isha'];let savedTimes=db.get('times',{});
+prayerKeys.forEach(k=>$('#'+k).value=savedTimes[k]||'');
+$('#savePrayer').onclick=()=>{prayerKeys.forEach(k=>savedTimes[k]=$('#'+k).value);db.set('times',savedTimes);status('#manualStatus','Расписание сохранено локально.')};
+$('#calcPrayer').onclick=()=>{if(!navigator.geolocation){status('#prayerStatus','Геолокация не поддерживается.');return}status('#prayerStatus','Запрашиваем местоположение…');navigator.geolocation.getCurrentPosition(async pos=>{try{const {latitude,longitude}=pos.coords;const d=new Date(),date=[String(d.getDate()).padStart(2,'0'),String(d.getMonth()+1).padStart(2,'0'),d.getFullYear()].join('-');const url=`https://api.aladhan.com/v1/timings/${date}?latitude=${latitude}&longitude=${longitude}&method=${$('#method').value}&school=${$('#asrSchool').value}`;const r=await fetch(url);if(!r.ok)throw Error('HTTP '+r.status);const j=await r.json();if(j.code!==200)throw Error('API');const t=j.data.timings;const vals={fajr:t.Fajr,dhuhr:t.Dhuhr,asr:t.Asr,maghrib:t.Maghrib,isha:t.Isha};prayerKeys.forEach(k=>$('#'+k).value=String(vals[k]||'').slice(0,5));savedTimes={...savedTimes,...Object.fromEntries(prayerKeys.map(k=>[k,$('#'+k).value]))};db.set('times',savedTimes);status('#prayerStatus','Расписание рассчитано на сегодня ('+(j.data.meta?.timezone||'местное время')+'). Сверь с местной мечетью.')}catch{status('#prayerStatus','Не удалось получить время. Проверь интернет и повтори попытку.')}},()=>status('#prayerStatus','Геолокация недоступна или разрешение не выдано.'),{enableHighAccuracy:true,timeout:15000,maximumAge:300000})};
+$('#method').onchange=()=>status('#prayerStatus','Метод изменён. Нажми расчёт ещё раз.');$('#asrSchool').onchange=()=>status('#prayerStatus','Способ расчёта Асра изменён. Нажми расчёт ещё раз.');
+
+/* Qibla */
+function bearing(lat1,lon1,lat2,lon2){const r=Math.PI/180,p1=lat1*r,p2=lat2*r,dl=(lon2-lon1)*r,y=Math.sin(dl)*Math.cos(p2),x=Math.cos(p1)*Math.sin(p2)-Math.sin(p1)*Math.cos(p2)*Math.cos(dl);return(Math.atan2(y,x)*180/Math.PI+360)%360}
+let qBearing=null;
+$('#getQibla').onclick=()=>{if(!navigator.geolocation){status('#qiblaStatus','Геолокация не поддерживается.');return}status('#qiblaStatus','Определяем местоположение…');navigator.geolocation.getCurrentPosition(p=>{qBearing=bearing(p.coords.latitude,p.coords.longitude,21.4225,39.8262);$('#qiblaDegree').textContent=Math.round(qBearing)+'°';status('#qiblaStatus','Азимут от истинного севера к Каабе. Компас телефона может иметь погрешность.')},()=>status('#qiblaStatus','Не удалось определить местоположение. Проверь разрешения.'),{enableHighAccuracy:true,timeout:15000})};
+function onOrientation(e){if(qBearing===null)return;const heading=typeof e.webkitCompassHeading==='number'?e.webkitCompassHeading:(typeof e.alpha==='number'?360-e.alpha:null);if(heading===null)return;$('#compass').style.transform=`rotate(${(qBearing-heading+360)%360}deg)`}
+$('#enableCompass').onclick=async()=>{try{if(typeof DeviceOrientationEvent!=='undefined'&&typeof DeviceOrientationEvent.requestPermission==='function'){const p=await DeviceOrientationEvent.requestPermission();if(p!=='granted')throw Error('Нет разрешения')}window.addEventListener('deviceorientation',onOrientation,true);status('#qiblaStatus','Датчик включён. Если стрелка не двигается, браузер может не поддерживать компас.')}catch{status('#qiblaStatus','Не удалось включить датчик. Проверь HTTPS и настройки устройства.')}};
+</script>
+</body>
+</html>
